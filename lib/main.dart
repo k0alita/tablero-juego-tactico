@@ -51,11 +51,44 @@ class Tablero extends StatelessWidget {
     ));
   }
 
+  Widget crearJugador(String nombre, Color color, IconData icono) {
+    return Expanded(child: Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            nombre,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Icon(
+            icono,
+            color: color,
+            size: 36,
+          ),
+          const SizedBox(height: 12),
+          Text(
+            "Puntos: 120",
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 14,
+            ),
+          )
+        ],
+      ),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tablero Juego Tactico", style: TextStyle(color: Colors.black, fontWeight: FontWeight(400))),
+        title: const Text("Tablero Juego Tactico", style: TextStyle(color: Colors.black38, fontWeight: FontWeight(500))),
         backgroundColor: Colors.blueGrey.shade900,
       ),
       body: Column(
@@ -63,8 +96,8 @@ class Tablero extends StatelessWidget {
           Expanded(flex: 2, child: Row(
             children: [
               Expanded(flex: 3, child: Container(
-                padding: const EdgeInsets.all(4),
-                color: Colors.blueGrey.shade600,
+                padding: const EdgeInsets.all(8),
+                color: Colors.blueGrey.shade700,
                 child: Column(
                   children: [
                     crearFila(),
@@ -75,7 +108,20 @@ class Tablero extends StatelessWidget {
                 ),
               )),
               Expanded(flex: 2, child: Container(
-                color: Colors.blueGrey.shade200,
+                color: Colors.blueGrey.shade700,
+                padding: const EdgeInsets.all(8),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey.shade600,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                child: Column(
+                  children: [
+                    crearJugador("Jugador 1 (Azul)", Colors.blue, Icons.person),
+                    crearJugador("Jugador 2 (Rojo)", Colors.red, Icons.person_outline)
+                  ]
+                ),
+                ),
               ))
             ],
           )),
