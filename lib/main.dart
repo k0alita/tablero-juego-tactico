@@ -83,6 +83,19 @@ class Tablero extends StatelessWidget {
       ),
     ));
   }
+  
+  Widget crearMovimiento(String numero, String jugador, String descripcion, Color color) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundColor: color,
+        foregroundColor: Colors.white,
+        child: Text(numero),
+      ),
+      title: Text("$jugador: movio pieza"),
+      subtitle: Text(descripcion),
+      trailing: const Icon(Icons.history),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +140,38 @@ class Tablero extends StatelessWidget {
           )),
           Expanded(
             child: Container(
-              color: Colors.grey.shade300,
+              color: Colors.grey.shade200,
+              child: Column(
+                children: [
+                  const Padding(padding: EdgeInsets.all(8),
+                    child: Text("Historial de movimientos", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                  ),
+                  Expanded(child: ListView(
+                    children: [
+                      crearMovimiento(
+                        '1',
+                        'Jugador 1',
+                        'Caballero a la casilla C4',
+                        Colors.blue,),
+                      crearMovimiento(
+                        '2',
+                        'Jugador 2',
+                        'Caballero a la casilla C4',
+                        Colors.red,),
+                      crearMovimiento(
+                        '3',
+                        'Jugador 1',
+                        'Caballero a la casilla C4',
+                        Colors.blue,),
+                      crearMovimiento(
+                        '4',
+                        'Jugador 2',
+                        'Caballero a la casilla C4',
+                        Colors.red,),
+                    ],
+                  ))
+                ],
+              ),
             ),
           )
         ],
