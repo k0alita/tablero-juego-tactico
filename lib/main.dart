@@ -101,7 +101,7 @@ class Tablero extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tablero Juego Tactico", style: TextStyle(color: Colors.black38, fontWeight: FontWeight(500))),
+        title: const Text("Tablero Juego Tactico", style: TextStyle(color: Colors.black54, fontWeight: FontWeight(600))),
         backgroundColor: Colors.blueGrey.shade900,
       ),
       body: Column(
